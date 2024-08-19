@@ -34,7 +34,7 @@ if file is None:
     st.text("Please upload an image file")
     label = False
 else:
-    img = Image.open(file)
+    img = Image.open(file).convert("RGB")
     st.image(img, width=400)
     result, label = model_predict.pred_img(img)
     st.sidebar.success(result)
